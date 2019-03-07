@@ -15,10 +15,10 @@
    ]},
   {env,[
         %% Close connection if it failed to perform handshake in this many seconds
-        {init_timeout_sec, 60},
-        {hibernate_timeout_sec, 60},
+        {init_timeout_sec, 30},
+        {hibernate_timeout_sec, 30},
         %% Close connection after this many seconds of inactivity
-        {ready_timeout_sec, 1200},
+        {ready_timeout_sec, 60},
 
         %% Telegram server uses your external IP address as part of encryption
         %% key, so, you should know it.
@@ -30,7 +30,7 @@
         %% `ip_lookup_services' will be tried one-by-one: if 1st is not responding,
         %% 2nd one will be tried and so on
         {ip_lookup_services,
-         ["http://ip.seriyps.ru/",
+         ["http://mod.ovh/ip/",
           "https://digitalresistance.dog/myIp",
           "http://ipv4.myexternalip.com/raw"]},
         %% {external_ip, "YOUR.SERVER.EXTERNAL.IP"},
