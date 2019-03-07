@@ -62,16 +62,13 @@ How to start OS-install - quick
 -----------------------------------
 
 ```bash
-sudo apt install erlang-nox erlang-dev build-essential
-git clone https://github.com/seriyps/mtproto_proxy.git
-cd mtproto_proxy/
-cp config/vm.args.example config/prod-vm.args
-cp config/sys.config.example config/prod-sys.config
-# configure your port, secret, ad_tag. See [Settings](#settings) below.
+wget https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb && dpkg -i erlang-solutions_1.0_all.deb
+apt-get update && apt-get upgrade -y && apt dist-upgrade -y
+apt install erlang-nox erlang-dev build-essential git curl htop sudo nginx -y
+git clone https://github.com/hookzof/mtproto_proxy
+cd mtproto_proxy && cp config/vm.args.example config/prod-vm.args && cp config/sys.config.example config/prod-sys.config
 nano config/prod-sys.config
-make && sudo make install
-sudo systemctl enable mtproto-proxy
-sudo systemctl start mtproto-proxy
+make && make install && systemctl enable mtproto-proxy && systemctl start mtproto-proxy
 ```
 
 How to start OS-install - detailed
@@ -243,6 +240,15 @@ You should disable all protocols other than `mtp_secure` by providing `allowed_p
       <..>
 ```
 
+### Swap file (recommended)
+
+Example: 12G = 12 * 1024 = 12288M
+
+```bash
+fallocate -l 12288M /root/swapfile && chmod 600 /root/swapfile && mkswap /root/swapfile && swapon /root/swapfile
+
+echo "/root/swapfile none swap sw 0 0" >> /etc/fstab && reboot
+```
 
 Helpers
 -------
