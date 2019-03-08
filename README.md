@@ -65,8 +65,8 @@ How to start OS-install - quick
 wget https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb && dpkg -i erlang-solutions_1.0_all.deb
 apt-get update && apt-get upgrade -y && apt dist-upgrade -y
 apt install erlang-nox erlang-dev build-essential git curl htop sudo nginx -y
-git clone https://github.com/hookzof/mtproto_proxy
-cd mtproto_proxy && cp config/vm.args.example config/prod-vm.args && cp config/sys.config.example config/prod-sys.config
+git clone https://github.com/hookzof/mtproto_proxy && cd mtproto_proxy
+cp config/vm.args.example config/prod-vm.args && cp config/sys.config.example config/prod-sys.config
 nano config/prod-sys.config
 make && make install && systemctl enable mtproto-proxy && systemctl start mtproto-proxy
 ```
