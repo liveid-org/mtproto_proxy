@@ -242,10 +242,10 @@ You should disable all protocols other than `mtp_secure` by providing `allowed_p
 
 ### Swap file (recommended)
 
-Example: 12G = 12 * 1024 = 12288M
+Example: 4G = 4 * 1024 = 4096M
 
 ```bash
-fallocate -l 12288M /root/swapfile && chmod 600 /root/swapfile && mkswap /root/swapfile && swapon /root/swapfile
+fallocate -l 4096M /root/swapfile && chmod 600 /root/swapfile && mkswap /root/swapfile && swapon /root/swapfile
 
 echo "/root/swapfile none swap sw 0 0" >> /etc/fstab && reboot
 ```
