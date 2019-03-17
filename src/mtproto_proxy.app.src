@@ -15,10 +15,10 @@
    ]},
   {env,[
         %% Close connection if it failed to perform handshake in this many seconds
-        {init_timeout_sec, 30},
-        {hibernate_timeout_sec, 30},
+        {init_timeout_sec, 15},
+        {hibernate_timeout_sec, 15},
         %% Close connection after this many seconds of inactivity
-        {ready_timeout_sec, 60},
+        {ready_timeout_sec, 30},
 
         %% Telegram server uses your external IP address as part of encryption
         %% key, so, you should know it.
